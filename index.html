@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typologie Humaine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🧩 Les Systèmes de Typologie</h1>
+            <p>Explorez les différentes cartes de la personnalité humaine.</p>
+            <nav>
+                <ul>
+                    <li><a href="#ocean">OCEAN</a></li>
+                    <li><a href="#enneagram">Ennéagramme</a></li>
+                    <li><a href="#mbti">MBTI</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="ocean" class="typology-section">
+            <div class="container">
+                <h2>🌊 Le Modèle OCEAN</h2>
+                <p class="intro-text">Le standard scientifique (Big Five).</p>
+                <div class="cards-grid">
+                    <article class="card"><h3>Ouverture</h3><p>Curiosité et créativité.</p></article>
+                    <article class="card"><h3>Conscience</h3><p>Discipline et organisation.</p></article>
+                    <article class="card"><h3>Extraversion</h3><p>Énergie sociale.</p></article>
+                    <article class="card"><h3>Agréabilité</h3><p>Coopération et empathie.</p></article>
+                    <article class="card"><h3>Névrosisme</h3><p>Sensibilité au stress.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section id="enneagram" class="typology-section">
+            <div class="container">
+                <h2>9️⃣ L'Ennéagramme</h2>
+                <p class="intro-text">Découvrez votre motivation profonde.</p>
+                <div class="type-list">
+                    <li class="type-item" data-type="1">Type 1</li>
+                    <li class="type-item" data-type="2">Type 2</li>
+                    <li class="type-item" data-type="3">Type 3</li>
+                    <li class="type-item" data-type="4">Type 4</li>
+                    <li class="type-item" data-type="5">Type 5</li>
+                    <li class="type-item" data-type="6">Type 6</li>
+                    <li class="type-item" data-type="7">Type 7</li>
+                    <li class="type-item" data-type="8">Type 8</li>
+                    <li class="type-item" data-type="9">Type 9</li>
+                </div>
+                <div class="cta-container">
+                    <a href="test-enneagramme.html" class="btn-main" style="background: var(--ennea-color);">🎯 Passer le Test d'Ennéagramme</a>
+                </div>
+                <div id="enneagram-details" class="details-box hidden">
+                    <h3>Sélectionnez un type</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="mbti" class="typology-section">
+            <div class="container">
+                <h2>🧠 Le MBTI</h2>
+                <div class="mbti-grid">
+                    <div class="group analysts"><h4>Analystes (NT)</h4><div class="tags"><span>INTJ</span> <span>INTP</span> <span>ENTJ</span> <span>ENTP</span></div></div>
+                    <div class="group diplomats"><h4>Diplomates (NF)</h4><div class="tags"><span>INFJ</span> <span>INFP</span> <span>ENFJ</span> <span>ENFP</span></div></div>
+                    <div class="group sentinels"><h4>Sentinelles (SJ)</h4><div class="tags"><span>ISTJ</span> <span>ISFJ</span> <span>ESTJ</span> <span>ESFJ</span></div></div>
+                    <div class="group explorers"><h4>Explorateurs (SP)</h4><div class="tags"><span>ISTP</span> <span>ISFP</span> <span>ESTP</span> <span>ESFP</span></div></div>
+                </div>
+                <div class="cta-container">
+                    <a href="test.html" class="btn-main">🎯 Passer le Test MBTI Express</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 - Projet Typologie par Toma LEDENT</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

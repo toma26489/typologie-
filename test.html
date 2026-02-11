@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test MBTI Complet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="mini-header">
+        <div class="container">
+            <a href="index.html" class="back-link">⬅ Retour à l'accueil</a>
+            <h1>Test de Personnalité (44 Questions)</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="quiz-container" class="quiz-box">
+                
+                <div id="start-screen">
+                    <p class="intro-text">Ce test comporte 44 questions. Répondez le plus spontanément possible (moins de 5 secondes par question).</p>
+                    <button id="start-btn" class="btn-main">Commencer le Test</button>
+                </div>
+
+                <div id="question-screen" class="hidden">
+                    <div class="progress-container">
+                        <span id="progress-text">Question 1/44</span>
+                        <div class="progress-bar-bg">
+                            <div id="progress-bar" class="progress-bar-fill"></div>
+                        </div>
+                    </div>
+
+                    <h2 id="question-text" class="fade-in">Chargement...</h2>
+                    
+                    <div class="options">
+                        <button class="btn-option yes" data-value="yes">👍 Oui, c'est moi</button>
+                        <button class="btn-option no" data-value="no">👎 Non, pas vraiment</button>
+                    </div>
+                </div>
+
+               <div id="result-screen" class="hidden">
+                    <h2>Votre type est :</h2>
+                    <div id="final-type" class="type-reveal">----</div>
+                    <p id="final-desc" class="result-desc"></p>
+                    
+                    <div class="chart-container" style="position: relative; height:300px; width:100%; max-width: 600px; margin: 20px auto;">
+                        <canvas id="resultChart"></canvas>
+                    </div>
+
+                    <div id="scores-display" class="scores-grid"></div>
+                    <a href="index.html#mbti" class="btn-main" style="margin-top:20px;">Comprendre mon profil en détail</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 - Projet Typologie par Toma LEDENT</p>
+        </div>
+    </footer>
+
+</body>
+</html>

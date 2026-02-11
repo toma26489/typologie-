@@ -1,0 +1,847 @@
+/* --- IMPORTS FONTS (Google Fonts) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
+
+/* --- VARIABLES & RESET --- */
+:root {
+    /* Palette Moderne */
+    --bg-body: rgb(235 235 235); /* Un blanc cassé très chaud, moins clinique */
+    --text-main: #2d3436;
+    --text-secondary: #636e72;
+    
+    /* Dégradés & Couleurs */
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Violet/Bleu profonds */
+    --ocean-gradient: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    --ennea-color: #e056fd;
+    --card-bg: #ffffff;
+    
+    /* Ombres douces (Soft Shadows) */
+    --shadow-sm: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3);
+    
+    --radius: 16px; /* Coins bien arrondis */
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.7;
+    overflow-x: hidden; /* Évite le scroll horizontal */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* --- HEADER "HERO" --- */
+header {
+    background: var(--primary-gradient);
+    color: rgb(255, 255, 255);
+    padding: 80px 0 60px;
+    text-align: center;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); /* Coupe moderne en bas */
+}
+
+header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Lang Switcher flottant */
+.lang-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.lang-switcher button {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.lang-switcher button:hover {
+    background: white;
+    color: #764ba2;
+    transform: translateY(-2px);
+}
+
+/* Navigation "Glass" */
+nav ul {
+    list-style: none;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px); /* Effet verre */
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: var(--transition);
+}
+
+nav a:hover {
+    background: white;
+    color: #667eea;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* --- SECTIONS --- */
+section {
+    padding: 80px 0;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #2d3436;
+    margin-bottom: 15px;
+    background: var(--primary-gradient);
+    -webkit-text-fill-color: transparent; /* Texte en dégradé */
+}
+
+.intro-text {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 60px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+    margin: 0;
+}
+
+/* --- OCEAN CARDS --- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--ocean-gradient);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.ocean-card .icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.ocean-card h3 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+    color: #2d3436;
+}
+
+/* --- ENNÉAGRAMME --- */
+.type-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.type-item {
+    background: white;
+    padding: 12px 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.type-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--ennea-color);
+    color: var(--ennea-color);
+}
+
+.type-item.active {
+    background: var(--ennea-color);
+    color: white;
+    border-color: var(--ennea-color);
+    box-shadow: 0 5px 15px rgba(224, 86, 253, 0.4);
+    transform: scale(1.05);
+}
+
+.details-box {
+    background: white;
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 0 auto;
+    animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.details-box h3 {
+    color: var(--ennea-color);
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+/* --- MBTI --- */
+.dichotomies {
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.axis {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.axis:last-child { margin-bottom: 0; }
+
+.pole {
+    font-weight: 700;
+    width: 40px;
+    font-size: 1.2rem;
+    color: var(--text-main);
+}
+
+/* La barre centrale style "progress bar" */
+.bar {
+    flex-grow: 1;
+    height: 10px;
+    background: #edf2f7;
+    margin: 0 15px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.bar::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #cbd5e0;
+}
+
+.mbti-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.group {
+    background: white;
+    padding: 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border-top: 6px solid #ccc; /* fallback */
+}
+
+.group:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.group h4 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Couleurs spécifiques MBTI avec fonds pastels */
+.analysts { border-color: #8869c4; background: linear-gradient(to bottom, #fff, #f8f4ff); }
+.analysts h4 { color: #8869c4; }
+
+.diplomats { border-color: #33a474; background: linear-gradient(to bottom, #fff, #f0fdf4); }
+.diplomats h4 { color: #33a474; }
+
+.sentinels { border-color: #4298b4; background: linear-gradient(to bottom, #fff, #f0f9ff); }
+.sentinels h4 { color: #4298b4; }
+
+.explorers { border-color: #e4ae3a; background: linear-gradient(to bottom, #fff, #fffdf0); }
+.explorers h4 { color: #e4ae3a; }
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tags span {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+
+
+/* --- ANIMATIONS & UTILITAIRES --- */
+.hidden { display: none; }
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile responsive ajustements */
+@media (max-width: 768px) {
+    header h1 { font-size: 2.2rem; }
+    
+    .lang-switcher {
+        position: relative;
+        top: 0; right: 0;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    header { clip-path: none; padding-bottom: 40px; }
+    
+    nav ul { flex-direction: column; align-items: center; }
+    
+    nav a { width: 100%; display: block; text-align: center; }
+}
+
+/* --- AJOUTS POUR LE TEXTE DÉTAILLÉ --- */
+
+/* Style pour les paragraphes dans les cartes OCEAN */
+.ocean-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Style amélioré pour la boîte de détails Ennéagramme */
+.details-content {
+    margin-top: 20px;
+    text-align: left; /* Plus lisible aligné à gauche pour les détails */
+}
+
+.desc-text {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.motivation-box {
+    background: rgba(224, 86, 253, 0.1); /* Fond violet très clair */
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--ennea-color);
+    font-style: italic;
+    color: #555;
+}
+
+/* Style pour les descriptions de groupes MBTI */
+.group-desc {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+    min-height: 60px; /* Assure que toutes les cartes ont la même hauteur */
+}
+
+/* --- STYLE ENNÉAGRAMME DÉTAILLÉ --- */
+
+.ennea-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ennea-header h3 {
+    font-size: 1.8rem;
+    color: var(--ennea-color);
+    margin-bottom: 5px;
+}
+
+.ennea-tags {
+    display: inline-block;
+    background: rgba(224, 86, 253, 0.1);
+    color: var(--ennea-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ennea-desc {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    margin-bottom: 30px;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grille pour Passion vs Vertu */
+.ennea-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.ennea-card {
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.ennea-card:hover {
+    transform: translateY(-3px);
+}
+
+.ennea-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.ennea-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Couleurs spécifiques Passion (Rouge/Orange) vs Vertu (Vert/Teal) */
+.passion-card {
+    background: #fff5f5;
+    border-left: 4px solid #fc8181;
+    color: #c53030;
+}
+
+.virtue-card {
+    background: #f0fff4;
+    border-left: 4px solid #68d391;
+    color: #2f855a;
+}
+
+/* Mobile : on empile les cartes */
+@media (max-width: 600px) {
+    .ennea-duo {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- STYLE DU TEST MBTI --- */
+
+/* Bouton principal (Index & Test) */
+.cta-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-main {
+    display: inline-block;
+    background: var(--primary-gradient);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+    transition: var(--transition);
+}
+
+.btn-main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.6);
+}
+
+/* Header réduit pour la page test */
+.mini-header {
+    background: var(--text-main);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.back-link {
+    color: #dfe6e9;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Boîte du Quiz */
+.quiz-box {
+    background: white;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quiz-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: var(--text-main);
+}
+
+/* Boutons d'option (Oui/Non) */
+.options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.btn-option {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    flex: 1;
+}
+
+.btn-option.yes {
+    background: #e3f9e5; /* Vert pastel */
+    color: #27ae60;
+    border: 2px solid #27ae60;
+}
+
+.btn-option.no {
+    background: #ffecec; /* Rouge pastel */
+    color: #c0392b;
+    border: 2px solid #c0392b;
+}
+
+.btn-option:hover {
+    transform: scale(1.05);
+}
+
+.btn-action {
+    background: var(--text-main);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* Barre de progression */
+.progress-bar-bg {
+    width: 100%;
+    height: 10px;
+    background: #f1f2f6;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--primary-gradient);
+    transition: width 0.3s ease;
+}
+
+/* Résultat */
+.type-reveal {
+    font-size: 4rem;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 20px 0;
+    animation: zoomIn 0.5s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Ajout pour la page de résultat du test */
+
+.progress-container {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#progress-text {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.fade-in {
+    transition: opacity 0.2s ease-in-out;
+}
+
+.scores-grid {
+    margin-top: 30px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: #555;
+    display: grid;
+    gap: 10px;
+}
+
+.score-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.score-row:last-child {
+    border-bottom: none;
+}
+
+/* Force le texte à être gris foncé dans les sections pour qu'il soit visible */
+.typology-section {
+    color: var(--text-main) !important;
+}
+
+.typology-section h2, .typology-section h3, .typology-section h4 {
+    color: var(--text-main) !important;
+    -webkit-text-fill-color: initial !important; /* Annule le transparent si présent */
+}
+
+.intro-text {
+    color: var(--text-secondary) !important;
+}
+
+/* --- IMPORTS FONTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
+
+:root {
+    --bg-body: #f4f7f6;
+    --text-main: #2d3436;
+    --text-secondary: #636e72;
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --ocean-gradient: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    --ennea-color: #e056fd;
+    --card-bg: #ffffff;
+    --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+    --radius: 16px;
+    --transition: all 0.3s ease;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.container { 
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 70px; }
+
+/* --- HEADER --- */
+header {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+header h1 { font-family: 'Poppins', sans-serif; font-size: 3rem; margin-bottom: 10px; color: white !important; }
+
+/* --- TITRES (FIX VISIBILITÉ) --- */
+h2 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text; /* INDISPENSABLE */
+    background-clip: text;         /* INDISPENSABLE */
+    color: transparent !important;
+    display: block;
+}
+
+.typology-section { padding: 60px 0; color: var(--text-main); }
+
+/* --- CARTES & BOITES --- */
+.card, .details-box, .quiz-box, .group {
+    background: white;
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: var(--shadow-sm);
+    color: var(--text-main) !important;
+}
+
+/* --- ENNÉAGRAMME STYLE --- */
+.type-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; list-style: none; margin-bottom: 30px; }
+.type-item { 
+    padding: 10px 20px; border: 1px solid #ddd; border-radius: 30px; cursor: pointer; 
+    font-weight: 600; transition: var(--transition); background: white;
+}
+.type-item.active { background: var(--ennea-color); color: white; border-color: var(--ennea-color); }
+
+.ennea-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+.passion-card { background: #fff5f5; border-left: 5px solid #fc8181; padding: 15px; border-radius: 8px; }
+.virtue-card { background: #f0fff4; border-left: 5px solid #68d391; padding: 15px; border-radius: 8px; }
+
+/* --- QUIZ STYLE --- */
+.hidden { display: none !important; }
+.quiz-box { max-width: 600px; margin: 180px auto; text-align: center; }
+.btn-main, .btn-option { 
+    padding: 12px 25px; border-radius: 50px; border: none; cursor: pointer; font-weight: 700; transition: 0.3s;
+}
+.btn-main { background: var(--primary-gradient); color: white; text-decoration: none; display: inline-block; }
+.btn-option.yes { background: #27ae60; color: white; margin-right: 10px; }
+.btn-option.no { background: #c0392b; color: white; }
+
+.progress-bar-bg { width: 100%; height: 10px; background: #eee; border-radius: 10px; margin: 20px 0; }
+.progress-bar-fill { height: 100%; background: var(--primary-gradient); width: 0%; transition: 0.3s; }
+
+footer {
+
+    position: sticky;
+    background: #526266;
+    color: #b2bec3;
+    
+    text-align: center;
+    justify-content: center;
+    padding: 50px 0;
+    margin: auto;
+
+    width: 97%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border:solid 5px #515b5f;
+
+    border-bottom: none;
+
+    box-shadow: 1px -5px 3px #9bb1b9;
+
+}
+
+/* --- STAR SYSTEM --- */
+.star-box {
+    background: linear-gradient(135deg, #fff8e1 0%, #fff 100%);
+    border: 1px solid #ffe082;
+    color: #f57f17;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 6px rgba(255, 193, 7, 0.15);
+    animation: slideUp 0.5s ease;
+}
+
+.star-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 5px;
+}

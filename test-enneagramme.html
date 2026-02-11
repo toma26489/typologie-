@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test d'Ennéagramme</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="mini-header" style="background: var(--ennea-color);">
+        <div class="container">
+            <a href="index.html" class="back-link">⬅ Retour à l'accueil</a>
+            <h1 data-i18n="test_ennea_title">Test d'Ennéagramme Rapide</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div id="quiz-container" class="quiz-box">
+                <div id="start-screen">
+                    <p class="intro-text" data-i18n="test_ennea_intro">Répondez à 30 questions pour découvrir votre motivation profonde.</p>
+                    <button id="start-btn-ennea" class="btn-main" style="background: var(--ennea-color);">Commencer</button>
+                </div>
+                <div id="question-screen" class="hidden">
+                    <div class="progress-container">
+                        <span id="progress-text">Question 1/30</span>
+                        <div class="progress-bar-bg">
+                            <div id="progress-bar" class="progress-bar-fill" style="background: var(--ennea-color);"></div>
+                        </div>
+                    </div>
+                    <h2 id="question-text">Chargement...</h2>
+                    <div class="options">
+                        <button class="btn-option yes" data-value="yes">👍 Oui</button>
+                        <button class="btn-option no" data-value="no">👎 Non</button>
+                    </div>
+                </div>
+                <div id="result-screen" class="hidden">
+                    <h2 data-i18n="result_title">Votre Type Dominant :</h2>
+                    <div id="final-type" class="type-reveal" style="background: var(--ennea-color); -webkit-background-clip: text;">Type X</div>
+                    <p id="final-desc" class="result-desc"></p>
+                    <a href="index.html#enneagram" class="btn-main" style="background: var(--ennea-color);">Voir les profils complets</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 - Projet Typologie par Toma LEDENT</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
